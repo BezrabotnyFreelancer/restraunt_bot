@@ -35,7 +35,15 @@ def start(message):
 
 @bot.message_handler(commands=['help'])
 def help(message):
-    pass
+    start = '/start - Команда для получения меню'
+    admin_buttons = '/admin_buttons - Команда для получения информации о кнопках'
+    admin_messages = '/admin_messages - Команда для получения рейтинга пользователей по оставленным сообщениям'
+    admin_time = f'/admin_time - Команда для получения информации за {SETTINGS[Parms.time_range]}  последний дней'
+    msg = f'Для того чтобы оставить свое пожелание рестарану просто напишите в чат сообщение (лимит сообщений: {SETTINGS[Parms.message_limit]})'
+    bot.send_message(
+        chat_id=message.chat.id,
+        text='\n'.join([x for x in [start, admin_buttons, admin_messages, admin_time, msg]])
+    )
 
 
 @bot.message_handler(commands=['admin_buttons'])
