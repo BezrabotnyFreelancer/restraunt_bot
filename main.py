@@ -53,7 +53,7 @@ def admin_buttons(message):
     top_users = info[dirs[Dirs.user_buttons]]
     msg = generate_rating_message(top_taps, "кнопок", SETTINGS[Parms.top_buttons_range])
     msg += '\n\n'
-    msg += generate_rating_message(top_users, 'пользователей по нажатию кнопок', SETTINGS[Parms.top_buttons_range])
+    msg += generate_rating_message(top_users, 'пользователей по нажатию кнопок', SETTINGS[Parms.top_users_range])
     bot.send_message(
         chat_id=message.chat.id,
         text=msg,
@@ -83,7 +83,7 @@ def admin_time_users(message):
                                   SETTINGS[Parms.top_messages_range], SETTINGS[Parms.time_range])
     msg += '\n\n'
     msg += generate_rating_message(top_users_button, "пользователей по нажатию кнопок",
-                                   SETTINGS[Parms.top_buttons_range], SETTINGS[Parms.time_range])
+                                   SETTINGS[Parms.top_users_range], SETTINGS[Parms.time_range])
     msg += '\n\n'
     msg += generate_rating_message(top_buttons, "кнопок", SETTINGS[Parms.top_buttons_range], SETTINGS[Parms.time_range])
     bot.send_message(
