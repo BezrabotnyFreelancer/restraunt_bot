@@ -110,7 +110,7 @@ def generate_message(button: dict):
     if MENU_DIR[MenuInfo.size] in button or MENU_DIR[MenuInfo.price] in button:
         msg += f'<b>Блюдо: {button[MENU_DIR[MenuInfo.name]]}\n</b>'
     if MENU_DIR[MenuInfo.size] in button:
-        msg += f'<b>Размер порции: {button[MENU_DIR[MenuInfo.size]]}\n\n</b>'
+        msg += f'<b>Размер порции: {button[MENU_DIR[MenuInfo.size]]}г.\n\n</b>'
     msg += button[MENU_DIR[MenuInfo.description]] + '\n'
 
     if MENU_DIR[MenuInfo.price] in button:
