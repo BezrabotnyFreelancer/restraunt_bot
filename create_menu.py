@@ -85,7 +85,7 @@ class MenuPosition:
     next_position = NameValue()
 
     def __new__(cls, *args, **kwargs):
-        if cls.ID == cls.MAX_ID:
+        if cls.ID >= cls.MAX_ID:
             raise AttributeError('ID переполнен')
         cls.ID += 1
         return super().__new__(cls)
