@@ -126,12 +126,9 @@ def generate_rating_message(lst, title, rng, time=None):
         msg = f'<b>Топ {title}:</b> \n'
     else:
         msg = f'<b>Топ {title} за последние {SETTINGS[Parms.time_range]} дней:</b> \n'
-    if len(lst) >= 3:
-        msg += f"{medals[0]}{lst[0]}\n"
-        msg += f"{medals[1]}{lst[1]}\n"
-        msg += f"{medals[2]}{lst[2]}\n"
-        msg += '\n'.join([' '*6 + x for x in lst[3:rng]])
-    else:
-        for i in range(len(lst)):
+    try:
+        for i in range(rng):
             msg += f"{medals[i]}{lst[i]}\n"
+    except IndexError:
+        msg += '\n'.join([' ' * 6 + x for x in lst[3:rng]])
     return msg
